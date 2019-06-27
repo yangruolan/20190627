@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* div{
+            width:100px;
+            height:100px;
+            background-color: tomato;
+            position:relative;
+            top:100px;
+            left:50%;
+            transform: rotate(-45deg);
+        }
+        div:before{
+            content:"";
+            position:absolute;
+            top:-50px;
+            left:0;
+            width:100px;
+            height:100px;
+            background-color: tomato;
+            border-radius: 50%;
+        }
+        div:after{
+            content:"";
+            position:absolute;
+            top:0;
+            left:50px;
+            width:100px;
+            height:100px;
+            background-color: tomato;
+            border-radius: 50%;
+        } */
+        html,body{
+            background: linear-gradient(to left ,lightpink 0%, pink 50%,palevioletred 100%);
+        }
+        h1{
+            color:red;
+        }
+        .heart {
+            width: 100px;
+            height: 90px;
+            position: relative;
+            float: left;
+           
+        }
+        .heart:before,
+        .heart:after {
+            position: absolute;
+            content: "";
+            left: 50px;
+            top: 0;
+            width: 50px;
+            height: 80px;
+            background: #fc2e5a;
+            border-radius: 50px 50px 0 0;
+            transform-origin: 0 100%;
+            transform: rotate(-45deg);
+        }
+        .heart:after {
+            left: 0;
+            transform-origin: 100% 100%;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div></div> -->
+    <h1>爱无处不在...</h1>
+    <div class="heart" id="heart"></div>
+    <script>
+        let heart = document.getElementById("heart");
+        let timer = setInterval(() => {
+            var element = document.createElement('div');
+            element.setAttribute("class", 'heart')
+            document.body.appendChild(element)
+        }, 1000)
+        var Top = document.documentElement.scrollTop;
+            console.log(Top)
+            if(Top>0 ){
+            clearInterval(timer)
+        }
+    </script>
+</body>
+</html>
